@@ -28,3 +28,5 @@ mod test_decimals;
 mod test_lifecycle;
 #[cfg(test)]
 mod test_payouts;
+#[cfg(test)]
+mod test_oracle;

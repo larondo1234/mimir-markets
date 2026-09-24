@@ -44,10 +44,24 @@ pub struct ClaimCancelled {
 
 #[contractevent]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct OracleQueued {
+    #[topic]
+    pub next: Address,
+    pub executable_at: u64,
+}
+
+#[contractevent]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OracleChanged {
     #[topic]
     pub next: Address,
     pub previous: Option<Address>,
+}
+
+#[contractevent]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct OracleCancelled {
+    pub cancelled: bool,
 }
 
 #[contractevent]
