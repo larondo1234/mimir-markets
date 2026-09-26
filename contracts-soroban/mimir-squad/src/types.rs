@@ -58,6 +58,16 @@ pub struct PendingOracle {
     pub executable_at: u64,
 }
 
+/// Per-market accrued fee ledger. `seq` ties the balance to the current
+/// `fee_claim_seq` so a global `claim_fees` can invalidate every market
+/// ledger without iterating storage (Soroban footprint bound).
+#[contracttype]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MarketFeeBalance {
+    pub amount: i128,
+    pub seq: u64,
+}
+
 // ── Errors ───────────────────────────────────────────────────────────────────
 
 #[contracterror]

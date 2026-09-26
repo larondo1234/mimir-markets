@@ -91,3 +91,13 @@ pub struct OracleCancelled {
     pub cancelled: bool,
 }
 
+
+#[contractevent]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct MarketFeesClaimed {
+    #[topic]
+    pub market_id: u64,
+    #[topic]
+    pub recipient: Address,
+    pub amount: i128,
+}
